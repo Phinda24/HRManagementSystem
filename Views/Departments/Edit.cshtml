@@ -1,0 +1,60 @@
+﻿@model HRManagementSystem.Models.ViewModels.Department.DepartmentViewModel
+@{
+    ViewData["Title"] = "Edit Department";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header d-flex align-items-center gap-2">
+                <i class="bi bi-pencil-fill text-primary"></i>
+                <span class="fw-semibold">Edit Department</span>
+            </div>
+            <div class="card-body p-4">
+
+                <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <input type="hidden" asp-for="Id" />
+
+                    <!-- Department Name -->
+                    <div class="mb-3">
+                        <label asp-for="Name"
+                               class="form-label fw-semibold small"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="alert alert-light border small mb-4">
+                        <i class="bi bi-info-circle text-primary me-2"></i>
+                        This department currently has
+                        <strong>@Model.EmployeeCount active employees</strong>.
+                        <br />
+                        Created on @Model.CreatedAt.ToString("dd MMM yyyy").
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+                        <button type="submit"
+                                class="btn btn-primary flex-fill fw-semibold">
+                            <i class="bi bi-save me-2"></i> Save Changes
+                        </button>
+                        <a asp-action="Index"
+                           class="btn btn-outline-secondary flex-fill">
+                            Cancel
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

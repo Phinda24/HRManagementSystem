@@ -1,0 +1,51 @@
+﻿@model HRManagementSystem.Models.ViewModels.Department.CreateDepartmentViewModel
+@{
+    ViewData["Title"] = "Add Department";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header d-flex align-items-center gap-2">
+                <i class="bi bi-building text-primary"></i>
+                <span class="fw-semibold">Add New Department</span>
+            </div>
+            <div class="card-body p-4">
+
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <!-- Department Name -->
+                    <div class="mb-4">
+                        <label asp-for="Name"
+                               class="form-label fw-semibold small"></label>
+                        <input asp-for="Name"
+                               class="form-control"
+                               placeholder="Enter department name" />
+                        <span asp-validation-for="Name"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+                        <button type="submit"
+                                class="btn btn-primary flex-fill fw-semibold">
+                            <i class="bi bi-building-add me-2"></i> Save Department
+                        </button>
+                        <a asp-action="Index"
+                           class="btn btn-outline-secondary flex-fill">
+                            Cancel
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

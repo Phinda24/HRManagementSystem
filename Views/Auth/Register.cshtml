@@ -1,0 +1,185 @@
+﻿@model HR_Management_System.Models.ViewModels.Auth.RegisterViewModel
+@{
+    ViewData["Title"] = "Register User";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header d-flex align-items-center gap-2">
+                <i class="bi bi-person-plus-fill text-primary"></i>
+                <span class="fw-semibold">Register New User</span>
+            </div>
+            <div class="card-body p-4">
+
+                <form asp-action="Register"
+                      asp-controller="Auth"
+                      method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="All"
+                         class="text-danger mb-3"></div>
+
+                    <!-- Full Name -->
+                    <div class="mb-3">
+                        <label asp-for="FullName"
+                               class="form-label fw-semibold small">
+                        </label>
+                        <input asp-for="FullName"
+                               class="form-control"
+                               placeholder="Enter full name" />
+                        <span asp-validation-for="FullName"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label asp-for="Email"
+                               class="form-label fw-semibold small">
+                        </label>
+                        <input asp-for="Email"
+                               class="form-control"
+                               placeholder="Enter email address" />
+                        <span asp-validation-for="Email"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label asp-for="Password"
+                               class="form-label fw-semibold small">
+                        </label>
+                        <input asp-for="Password"
+                               class="form-control"
+                               placeholder="Minimum 6 characters" />
+                        <span asp-validation-for="Password"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-3">
+                        <label asp-for="ConfirmPassword"
+                               class="form-label fw-semibold small">
+                        </label>
+                        <input asp-for="ConfirmPassword"
+                               class="form-control"
+                               placeholder="Repeat password" />
+                        <span asp-validation-for="ConfirmPassword"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Role -->
+                    <div class="mb-3">
+                        <label asp-for="Role"
+                               class="form-label fw-semibold small">
+                        </label>
+                        <select asp-for="Role"
+                                class="form-select"
+                                id="roleSelect">
+                            <option value="">-- Select Role --</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Employee">Employee</option>
+                        </select>
+                        <span asp-validation-for="Role"
+                              class="text-danger small"></span>
+                    </div>
+
+                    <!-- Department — only shows for Manager -->
+                    <div class="mb-4" id="departmentSection"
+                         style="display:none;">
+                        <label asp-for="DepartmentId"
+                               class="form-label fw-semibold small">
+                            Assign Department
+                        </label>
+                        <select asp-for="DepartmentId"
+                                class="form-select"
+                                id="departmentSelect">
+                            <option value="">
+                                -- Select Department --
+                            </option>
+                            @if (Model.AvailableDepartments != null)
+                            {
+                                @foreach (var dept in
+                                    Model.AvailableDepartments)
+                                {
+                                    <option value="@dept.Value">
+                                        @dept.Text
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="DepartmentId"
+                              class="text-danger small"></span>
+
+                        @if (Model.AvailableDepartments == null ||
+                             !Model.AvailableDepartments.Any())
+                        {
+                            <div class="alert alert-warning mt-2 py-2 small">
+                                <i class="bi bi-exclamation-triangle me-1">
+                                </i>
+                                All departments already have managers.
+                                Please create a new department first.
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info mt-2 py-2 small">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Only departments without a manager are shown.
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+                        <button type="submit"
+                                class="btn btn-primary flex-fill fw-semibold">
+                            <i class="bi bi-person-check me-2"></i>
+                            Create Account
+                        </button>
+                        <a asp-controller="Reports" asp-action="Index"
+                           class="btn btn-outline-secondary flex-fill">
+                            Cancel
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
+    <script>
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            toggleDepartment();
+
+            // Listen for role change
+            document.getElementById('roleSelect')
+                .addEventListener('change', toggleDepartment);
+        });
+
+        function toggleDepartment() {
+            var role = document.getElementById('roleSelect').value;
+            var deptSection =
+                document.getElementById('departmentSection');
+            var deptSelect =
+                document.getElementById('departmentSelect');
+
+            if (role === 'Manager') {
+                deptSection.style.display = 'block';
+                deptSelect.setAttribute('required', 'required');
+            } else {
+                deptSection.style.display = 'none';
+                deptSelect.removeAttribute('required');
+                deptSelect.value = '';
+            }
+        }
+    </script>
+

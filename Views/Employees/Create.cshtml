@@ -1,0 +1,137 @@
+﻿@model HRManagementSystem.Models.ViewModels.Employee.CreateEmployeeViewModel
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header d-flex align-items-center gap-2">
+                <i class="bi bi-person-plus-fill text-primary"></i>
+                <span class="fw-semibold">Add New Employee</span>
+            </div>
+            <div class="card-body p-4">
+
+                <form asp-controller="Employees" asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="text-danger">
+                    <div class="row">
+                        <!-- First Name -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="FirstName"
+                                   class="form-label fw-semibold small"></label>
+                            <input asp-for="FirstName"
+                                   class="form-control"
+                                   placeholder="Enter first name" />
+                            <span asp-validation-for="FirstName"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="LastName"
+                                   class="form-label fw-semibold small"></label>
+                            <input asp-for="LastName"
+                                   class="form-control"
+                                   placeholder="Enter last name" />
+                            <span asp-validation-for="LastName"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Email"
+                                   class="form-label fw-semibold small"></label>
+                            <input asp-for="Email"
+                                   class="form-control"
+                                   placeholder="Enter email address" />
+                            <span asp-validation-for="Email"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="PhoneNumber"
+                                   class="form-label fw-semibold small"></label>
+                            <input asp-for="PhoneNumber"
+                                   class="form-control"
+                                   placeholder="Enter phone number" />
+                            <span asp-validation-for="PhoneNumber"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Department -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="DepartmentId"
+                                   class="form-label fw-semibold small"></label>
+                            <select asp-for="DepartmentId"
+                                    asp-items="Model.Departments"
+                                    class="form-select">
+                                <option value=" 0">-- Select Department --</option>
+                            </select>
+                            <span asp-validation-for="DepartmentId"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Position -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Position"
+                                   class="form-label fw-semibold small"></label>
+                            <input asp-for="Position"
+                                   class="form-control"
+                                   placeholder="Enter job position" />
+                            <span asp-validation-for="Position"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Salary -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Salary"
+                                   class="form-label fw-semibold small"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">R</span>
+                                <input asp-for="Salary"
+                                       class="form-control"
+                                       placeholder="0.00" />
+                            </div>
+                            <span asp-validation-for="Salary"
+                                  class="text-danger small"></span>
+                        </div>
+
+                        <!-- Start Date -->
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="StartDate"
+                                   class="form-label fw-semibold small"></label>
+                            <input asp-for="StartDate" class="form-control" type="date" value="@Model.StartDate.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="StartDate"
+                                  class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2 mt-2">
+                        <button type="submit"
+                                class="btn btn-primary flex-fill fw-semibold">
+                            <i class="bi bi-person-check me-2"></i> Save Employee
+                        </button>
+                        <a asp-action="Index"
+                           class="btn btn-outline-secondary flex-fill">
+                            Cancel
+                        </a>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+        // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    }
+
+}

@@ -1,0 +1,59 @@
+﻿<div id="sidebar-wrapper">
+    <div class="sidebar-heading d-flex align-items-center px-3 py-4">
+        <i class="bi bi-people-fill me-2 fs-4"></i>
+        <span class="fw-bold fs-5">HR System</span>
+    </div>
+
+    <hr class="text-white m-0" />
+
+    <ul class="list-unstyled px-2 mt-3">
+
+        <!-- Dashboard -->
+        <li class="mb-1">
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Reports" ? "active" : "")"
+               asp-controller="Reports" asp-action="Index">
+                <i class="bi bi-speedometer2 me-2"></i> Dashboard
+            </a>
+        </li>
+
+        <!-- Employees -->
+        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+        {
+            <li class="mb-1">
+                <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Employees" ? "active" : "")"
+                   asp-controller="Employees" asp-action="Index">
+                    <i class="bi bi-person-lines-fill me-2"></i> Employees
+                </a>
+            </li>
+        }
+
+        <!-- Departments -->
+        <li class="mb-1">
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Departments" ? "active" : "")"
+               asp-controller="Departments" asp-action="Index">
+                <i class="bi bi-building me-2"></i> Departments
+            </a>
+        </li>
+
+        <!-- Payroll -->
+        <li class="mb-1">
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Payroll" ? "active" : "")"
+               asp-controller="Payroll" asp-action="Index">
+                <i class="bi bi-cash-stack me-2"></i> Payroll
+            </a>
+        </li>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <hr class="text-white" />
+            <li class="sidebar-section-label px-2 mb-1">ADMIN</li>
+
+            <li class="mb-1">
+                <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Auth" && ViewContext.RouteData.Values["action"]?.ToString() == "Register" ? "active" : "")"
+                   asp-controller="Auth" asp-action="Register">
+                    <i class="bi bi-person-plus-fill me-2"></i> Add User
+                </a>
+            </li>
+        }
+    </ul>
+</div>

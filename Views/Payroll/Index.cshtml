@@ -1,0 +1,158 @@
+﻿@model IEnumerable<HR_Management_System.Models.Entities.Payslip>
+@{
+    ViewData["Title"] = "Payroll";
+}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-cash-stack text-primary"></i>
+            <span class="fw-semibold">All Payslips</span>
+            <span class="badge bg-primary rounded-pill">@Model.Count()</span>
+        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Generate" class="btn btn-primary btn-sm">
+                <i class="bi bi-plus-lg me-1"></i> Generate Payslip
+            </a>
+        }
+    </div>
+    <div class="card-body p-0">
+
+        @if (!Model.Any())
+        {
+            <div class="text-center py-5 text-muted">
+                <i class="bi bi-receipt fs-1 d-block mb-3"></i>
+                <p>No payslips found.</p>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Generate" class="btn btn-primary btn-sm">
+                        Generate First Payslip
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <!-- Summary Cards -->
+            <div class="row g-3 p-3">
+                <div class="col-md-4">
+                    <div class="stat-card"
+                         style="background: linear-gradient(135deg, #1e3a5f, #2d6a9f);">
+                        <div class="small opacity-75 mb-1">Total Payslips</div>
+                        <div class="fs-4 fw-bold">@Model.Count()</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card"
+                         style="background: linear-gradient(135deg, #198754, #20c997);">
+                        <div class="small opacity-75 mb-1">Total Basic Salary</div>
+                        <div class="fs-4 fw-bold">
+                            R @Model.Sum(p => p.BasicSalary).ToString("N2")
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card"
+                         style="background: linear-gradient(135deg, #dc3545, #fd7e14);">
+                        <div class="small opacity-75 mb-1">Total Deductions</div>
+                        <div class="fs-4 fw-bold">
+                            R @Model.Sum(p => p.Deductions).ToString("N2")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Employee</th>
+                            <th>Department</th>
+                            <th>Period</th>
+                            <th>Basic Salary</th>
+                            <th>Deductions</th>
+                            <th>Net Salary</th>
+                            <th>Paid On</th>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <th class="text-end">Actions</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var payslip in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="bg-primary rounded-circle
+                                                            d-flex align-items-center
+                                                            justify-content-center text-white"
+                                             style="width:32px; height:32px;
+                                                            font-size:12px;">
+                                            @payslip.Employee?.FirstName[0]
+                                            @payslip.Employee?.LastName[0]
+                                        </div>
+                                        <span class="fw-semibold small">
+                                            @payslip.Employee?.FullName
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="small text-muted">
+                                    @payslip.Employee?.Department?.Name
+                                </td>
+                                <td class="small fw-semibold">
+                                    @(new DateTime(payslip.Year,
+                                                                payslip.Month, 1).ToString("MMMM yyyy"))
+                        </td>
+                        <td class="small">
+                            R @payslip.BasicSalary.ToString("N2")
+                        </td>
+                        <td class="small text-danger">
+                            - R @payslip.Deductions.ToString("N2")
+                        </td>
+                        <td class="small fw-bold text-success">
+                            R @payslip.NetSalary.ToString("N2")
+                        </td>
+                        <td class="small text-muted">
+                            @payslip.PaidOn.ToString("dd MMM yyyy")
+                        </td>
+                        @if (User.IsInRole("Admin"))
+                                {
+                                    <td class="text-end">
+                                        <form asp-action="Delete"
+                                              asp-route-id="@payslip.Id"
+                                              method="post"
+                                              onsubmit="return confirm(
+                                                            'Are you sure you want to
+                                                             delete this payslip?');">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    title="Delete">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot class="table-light">
+                        <tr>
+                            <td colspan="5"
+                                class="text-end fw-bold small">
+                                Total Net Payroll:
+                            </td>
+                            <td class="fw-bold text-success">
+                                R @Model.Sum(p => p.NetSalary).ToString("N2")
+                            </td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+    </div>
+</div>

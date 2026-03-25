@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR Management System", "HR Management System.csproj", "{3BD71983-C1DB-46AE-AEEB-4362ED469B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR Management System.Test", "..\HR Management System.Test\HR Management System.Test.csproj", "{57E38A9A-F932-477A-BF90-EC12B47C4D8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRManagementSystem.Tests", "..\HRManagementSystem.Tests\HRManagementSystem.Tests.csproj", "{AE4BA141-5046-467B-AB6E-C9F5D0A96467}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshots", "screenshots", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		..\Screenshots\hr management system\Screenshot 2026-03-23 173135.png = ..\Screenshots\hr management system\Screenshot 2026-03-23 173135.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181211.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181211.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181250.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181250.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181308.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181308.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181326.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181326.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181411.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181411.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181426.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181426.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181440.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181440.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181455.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181455.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181509.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181509.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181523.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181523.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181546.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181546.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181559.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181559.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181609.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181609.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181654.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181654.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181850.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181850.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181922.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181922.png
+		..\Screenshots\hr management system\Screenshot 2026-03-24 181947.png = ..\Screenshots\hr management system\Screenshot 2026-03-24 181947.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BD71983-C1DB-46AE-AEEB-4362ED469B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD71983-C1DB-46AE-AEEB-4362ED469B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD71983-C1DB-46AE-AEEB-4362ED469B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD71983-C1DB-46AE-AEEB-4362ED469B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E38A9A-F932-477A-BF90-EC12B47C4D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E38A9A-F932-477A-BF90-EC12B47C4D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E38A9A-F932-477A-BF90-EC12B47C4D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E38A9A-F932-477A-BF90-EC12B47C4D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE4BA141-5046-467B-AB6E-C9F5D0A96467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE4BA141-5046-467B-AB6E-C9F5D0A96467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE4BA141-5046-467B-AB6E-C9F5D0A96467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE4BA141-5046-467B-AB6E-C9F5D0A96467}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C16A0BC7-BC0C-4C26-8764-45EA7B30792E}
+	EndGlobalSection
+EndGlobal
