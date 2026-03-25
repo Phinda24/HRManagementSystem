@@ -119,6 +119,7 @@ dotnet test
 
 ---
 ## Screenshots
+- <img width="1358" height="684" alt="Screenshot 2026-03-23 173135" src="https://github.com/user-attachments/assets/c991693d-82f2-45e7-afe6-0a46ea5830b2" />
 
 
 ## Author
