@@ -103,8 +103,8 @@ dotnet run
 ```
 
 5. Register first Admin account at `/Auth/Register`
-katleho@gmail.com
-1. password :
+Lefty@gmail.com
+1. password :Lefty12
 ---
 
 ## Running Tests
@@ -119,7 +119,30 @@ dotnet test
 
 ---
 ## Screenshots
-- <img width="1358" height="684" alt="Screenshot 2026-03-23 173135" src="https://github.com/user-attachments/assets/c991693d-82f2-45e7-afe6-0a46ea5830b2" />
+### Login
+<img width="1366" height="720" alt="Screenshot 2026-03-24 181211" src="https://github.com/user-attachments/assets/b62a65c4-1bb6-4f42-905a-c6ed170ac78e" />
+
+### Admin Dashboard
+<img width="1366" height="720" alt="Screenshot 2026-03-24 181211" src="https://github.com/user-attachments/assets/eb55d621-3715-42db-ac82-fe520985b9de" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181411" src="https://github.com/user-attachments/assets/25f66749-5ece-46ba-98e4-04cdb85e67b7" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181546" src="https://github.com/user-attachments/assets/21fb7a12-69e3-4f3e-82ce-b1a73889c7de" />
+
+### Employees
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181426" src="https://github.com/user-attachments/assets/ba4567e2-714c-4e3f-bc68-e93498e852cf" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181922" src="https://github.com/user-attachments/assets/2c396116-e773-4efb-a6a8-397e440842c8" />
+
+### Departments
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181440" src="https://github.com/user-attachments/assets/8f68bd71-e49f-46af-92da-8af955b9ac72" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181947" src="https://github.com/user-attachments/assets/ad0891b7-41ce-4281-85a2-60dc968daaa2" />
+
+
+### Payroll
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181455" src="https://github.com/user-attachments/assets/811da12b-e4a7-4bd2-8f65-d00026aaaacc" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181850" src="https://github.com/user-attachments/assets/9cf7c3f8-15f3-4c47-b8a1-1415a3d8a2c2" />
+
+### add user
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181509" src="https://github.com/user-attachments/assets/3175f749-2e46-40f3-8d7c-b53c125f7dc1" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181523" src="https://github.com/user-attachments/assets/49dc5b9b-abf4-4bf8-ac1a-6ae7e15f691e" />
 
 
 ## Author
