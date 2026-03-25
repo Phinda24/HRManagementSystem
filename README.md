@@ -120,7 +120,8 @@ dotnet test
 ---
 ## Screenshots
 ### Login
-<img width="1366" height="720" alt="Screenshot 2026-03-24 181211" src="https://github.com/user-attachments/assets/b62a65c4-1bb6-4f42-905a-c6ed170ac78e" />
+<img width="1366" height="768" alt="Screenshot 2026-03-24 181326" src="https://github.com/user-attachments/assets/eefc3af0-165a-43e5-bae1-b0b2a54c46a7" />
+
 
 ### Admin Dashboard
 <img width="1366" height="720" alt="Screenshot 2026-03-24 181211" src="https://github.com/user-attachments/assets/eb55d621-3715-42db-ac82-fe520985b9de" />
