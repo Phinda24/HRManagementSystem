@@ -118,11 +118,12 @@ dotnet test
 - EmployeeServiceTests — 6 tests
 
 ---
+## Screenshots
 
 
 ## Author
 
-**Your Name**
+**Phinda Mpho Moloko**
 South Africa
 [LinkedIn](https://www.linkedin.com/in/phinda-mpho-35844a309/ |
 [GitHub](https://github.com/Phinda24)
